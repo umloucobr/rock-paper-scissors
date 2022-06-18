@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="styles.css">
     <script src="./script.js" type="text/javascript"></script>
 </head>
 <body>
-    
+    <div class="title">
+        <h1>Rock, Paper or Scissors?</h1>
+    </div>
+    <div class="output">
+        <p class="outputp">Rock, Paper or Scissors?</p>
+    </div>
+    <div class="buttons">
+        <button class="b_rock" onclick="getRock()">
+            <p>Rock</p>    
+        </button>
+        <div class="divider1"></div>
+        <button class="b_paper" onclick="getPaper()">
+            <p>Paper</p>
+        </button>
+        <div class="divider1"></div>
+        <button class="b_scissors" onclick="getScissors()">
+            <p>Scissors</p>
+        </button>
+    </div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 let g_playerScore = 0;
 let g_computerScore = 0;
 let g_score = 0;
+let g_roundsPlayed = 1;
 
 function computerPlay() {
     let choice = Math.floor((Math.random() * 3) + 1);;
@@ -19,20 +20,23 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
     
-    if (playerSelection.toUpperCase() == computerSelection.toUpperCase()) {
+    if (playerSelection == computerSelection) {
+        document.getElementsByClassName("outputp")[0].innerHTML = "It's a tie!";
         console.log("It's a tie!")
         return 0;
     }
-    else if (computerSelection.toUpperCase() == "SCISSORS" && playerSelection.toUpperCase() == "PAPER" || computerSelection.toUpperCase() == "ROCK" && playerSelection.toUpperCase() == "SCISSORS" || computerSelection.toUpperCase() == "PAPER" && playerSelection.toUpperCase() == "ROCK") {
+    else if (computerSelection == "SCISSORS" && playerSelection == "PAPER" || computerSelection == "ROCK" && playerSelection == "SCISSORS" || computerSelection == "PAPER" && playerSelection == "ROCK") {
+        document.getElementsByClassName("outputp")[0].innerHTML = "The computer won this round!";
         ++g_computerScore;
         --g_score;
-        console.log("The Computer Won This Round!")
+        console.log("The computer won this round!")
         return 0;
     }
-    else if (playerSelection.toUpperCase() == "SCISSORS" && computerSelection.toUpperCase() == "PAPER" || playerSelection.toUpperCase() == "ROCK" && computerSelection.toUpperCase() == "SCISSORS" || playerSelection.toUpperCase() == "PAPER" && computerSelection.toUpperCase() == "ROCK") {
+    else if (playerSelection == "SCISSORS" && computerSelection == "PAPER" || playerSelection == "ROCK" && computerSelection == "SCISSORS" || playerSelection == "PAPER" && computerSelection == "ROCK") {
+        document.getElementsByClassName("outputp")[0].innerHTML = "You won this round!";
         ++g_playerScore;
         ++g_score;
-        console.log("You Won This Round!")
+        console.log("You won this round!")
         return 0;
     }
     else {
@@ -40,19 +44,40 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = window.prompt("Rock, Paper or Scissors");
-        let computerSelection = computerPlay();
-	    playRound(playerSelection, computerSelection);
+function game(playerSelection) {
+    let computerSelection = computerPlay();
+	playRound(playerSelection, computerSelection);
+
+    if (g_roundsPlayed >= 5 && g_score > 0) {
+        document.getElementsByClassName("outputp")[0].innerHTML = "You have won, congratulations :D!";
+        console.log("You have won the game.");
     }
-    if (g_score > 0) {
-        console.log("You won the game.");
+    else if (g_roundsPlayed >= 5 && g_score === 0) {    
+        document.getElementsByClassName("outputp")[0].innerHTML = "The game ended in a tie!";   
+        console.log("It is a tie.");
     }
-    else {
-        console.log("You lost.");
+    else if (g_roundsPlayed >= 5 && g_score < 0) {
+        document.getElementsByClassName("outputp")[0].innerHTML = "You have sadly lost the game :(.";
+        console.log("You have lost.");
     }
 }
-game();
+
+function getRock(){
+    let playerSelection = "ROCK";
+    game(playerSelection);
+    g_roundsPlayed += 1;
+}
+
+function getPaper(){
+    let playerSelection = "PAPER";
+    game(playerSelection);
+    g_roundsPlayed += 1;
+}
+
+function getScissors(){
+    let playerSelection = "SCISSORS";
+    game(playerSelection);
+    g_roundsPlayed += 1;
+}
 
 
