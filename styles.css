@@ -13,6 +13,7 @@ body {
 .title h1 {
     color: rgb(89, 255, 47);
     font-family: 'Anek Malayalam', sans-serif;
+    font-size: 5vh;
 }
 
 .output {
@@ -29,6 +30,7 @@ body {
 .output p {
     color: rgb(89, 255, 47);
     font-family: 'Anek Malayalam', sans-serif;
+    font-size: 2.5vh;
 }
 
 .buttons {
@@ -44,6 +46,7 @@ body {
     color: rgba(255, 252, 47, 0.5);
     background-color: rgb(107, 49, 22);
     font-family: 'Anek Malayalam', sans-serif;
+    font-size: 1.75vh;
     width: 20%;
 }
 
