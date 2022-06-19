@@ -54,3 +54,18 @@ body {
     height: auto;
     width: 40px;
 }
+
+footer {
+    display: flex;
+    padding-top: 22vh;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+    color: rgba(89, 255, 47, 0.2);
+    font-family: 'Anek Malayalam', sans-serif;
+    font-size: 2vh;
+}
